@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 # Delhi-Delicacy
-A sample angular project for any restaurant/food delivery organization
+A sample angular project for any restaurant/food delivery application
 =======
 # DelhiDelicacy
 
