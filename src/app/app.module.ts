@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+<<<<<<< HEAD
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -29,10 +30,21 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
 // import { FontAwesomeModule } from 'font-awesome';
+=======
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { FoodComponent } from './food/food.component';
+>>>>>>> 6dedf18043536ca5d441a56ff49e8082f9e5cfac
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     AdminOrdersComponent,
     AdminProductsComponent,
     ProductFormComponent,
@@ -73,6 +85,20 @@ import { AuthService } from './auth.service';
     ])
   ],
   providers: [CategoryServiceService, NgxNavigationWithDataComponent, AuthService],
+=======
+    HeaderComponent,
+    FooterComponent,
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    FoodComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+>>>>>>> 6dedf18043536ca5d441a56ff49e8082f9e5cfac
   bootstrap: [AppComponent]
 })
 export class AppModule { }
