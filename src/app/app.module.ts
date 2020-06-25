@@ -28,6 +28,10 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AuthGuardService } from './auth-guard.service';
+import { UserService } from './user.service';
+import { AdminAuthGuardService } from './admin-auth-guard.service';
 // import { FontAwesomeModule } from 'font-awesome';
 
 @NgModule({
@@ -57,6 +61,7 @@ import { AuthService } from './auth.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    GoogleMapsModule,
     // FontAwesomeModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
@@ -64,15 +69,30 @@ import { AuthService } from './auth.service';
       { path: 'products', component: ProductsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'admin/products', component: AdminProductsComponent },
-      { path: 'admin/orders', component: AdminOrdersComponent },
-      { path: 'my-orders', component: MyOrdersComponent },
+      {
+        path: 'admin/products', component: AdminProductsComponent,
+        canActivate: [AuthGuardService, AdminAuthGuardService]
+      },
+      {
+        path: 'admin/orders', component: AdminOrdersComponent,
+        canActivate: [AuthGuardService, AdminAuthGuardService]
+      },
+      { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
       { path: 'admin/forms', component: ProductFormComponent },
-      { path: 'contact', component: ContactComponent }
+      { path: 'contact', component: ContactComponent },
+      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService] },
+      { path: 'check-out', component: CheckoutComponent, canActivate: [AuthGuardService] }
       // {path: 'footer', component: FooterComponent}
     ])
   ],
-  providers: [CategoryServiceService, NgxNavigationWithDataComponent, AuthService],
+  providers: [
+    CategoryServiceService,
+    NgxNavigationWithDataComponent,
+    AuthService,
+    AuthGuardService,
+    UserService,
+    AdminAuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
