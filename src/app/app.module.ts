@@ -19,7 +19,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ShoppingEditComponent } from './shopping-cart/shopping-edit/shopping-edit.component';
 import { RouterModule } from '@angular/router';
-import { CategoryServiceService } from './services/category-service.service';
+import { CategoryService } from './services/category.service';
 import { FormsModule } from '@angular/forms';
 import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
 import { ContactComponent } from './contact/contact.component';
@@ -86,7 +86,7 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
     ])
   ],
   providers: [
-    CategoryServiceService,
+    CategoryService,
     NgxNavigationWithDataComponent,
     AuthService,
     AuthGuardService,

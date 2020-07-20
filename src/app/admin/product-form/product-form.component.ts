@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryServiceService } from 'src/app/services/category-service.service';
+import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/shared/category';
 import { Router } from '@angular/router';
 import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
@@ -11,13 +11,13 @@ import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
 })
 export class ProductFormComponent implements OnInit {
   categories: Category[];
-  constructor(private categoryService: CategoryServiceService, private router: Router,private navCtrl:NgxNavigationWithDataComponent) {
+  constructor(private categoryService: CategoryService, private router: Router, private navCtrl: NgxNavigationWithDataComponent) {
     this.categories = this.categoryService.getCategories();
-   }
+  }
 
-  save(product){
+  save(product) {
     console.log(product);
-    this.navCtrl.navigate('/admin/products',product);
+    this.navCtrl.navigate('/admin/products', product);
   }
 
   ngOnInit(): void {
